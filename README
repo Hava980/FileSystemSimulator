@@ -1,0 +1,47 @@
+File System Simulator
+Authored by Hava Haviv
+211737440
+
+==Description==
+This project implements a basic file system simulator that allows you to interact with a simulated disk space. The simulator offers an interface to create, manage, read, and write files within this simulated disk environment.
+In our simulation we have three direct blocks, one singel indirect block and one double indirect block.
+ 
+==Program DATABASE==
+file descriptor class with an attribute file, whose type is a pair that containing the filename and pointer to its Inode.
+mainDir whose type is map: contanting all files that saves on the disk.
+OpenFileDescriptors: a vector that saves all open files those that have a file discriptor.
+BitVector: an array that contains the information about which block is taken and which is avaliable.
+
+==Functions==
+1. fsFormat(int blockSize): Formats the simulated disk with a specified block size. Initializes the file system structure, including the BitVector for tracking occupied blocks.
+2. CreateFile(string fileName): Creates a new file with the given name and returns a file descriptor (FD) for the created file.
+3. OpenFile(string fileName): Opens an existing file for reading and writing and returns a file descriptor (FD) for the opened file.
+4. CloseFile(int fd): Closes the file associated with the given file descriptor (FD).
+5. WriteToFile(int fd, char *buf, int len): Writes data from the buffer to the file associated with the given file descriptor (FD). Manages data allocation in blocks on the simulated disk.
+6. ReadFromFile(int fd, char *buf, int len): Reads data from the file associated with the given file descriptor (FD) and stores it in the buffer.
+7. DelFile(string fileName): Deletes the file with the specified name from the simulated disk, freeing up occupied blocks.
+8. CopyFile(string srcFileName, string destFileName): Copies the contents of one file to another, creating a new file with the destination name.
+9. RenameFile(string oldFileName, string newFileName): Renames an existing file by updating its name in the file system structure.
+
+==features==
+Format Disk: You can format the simulated disk to initialize the file system structure.
+Create File: Create a new file on the simulated disk.
+Open File: Open an existing file for reading and writing.
+Close File: Close an open file.
+Write to File: Write data to an open file.
+Read from File: Read data from an open file.
+Delete File: Delete a file from the simulated disk.
+Copy File: Copy the contents of one file to another.
+Rename File: Rename an existing file.
+
+==How to compile?==
+compile: gcc stub_code.cpp -o stub_code
+run: ./stub_code
+
+==Input:==
+The simulator's command line interface allows users to enter various commands to perform file system operations.
+It is possible to enter numbers from 0-10 to activate the functions mentioned before.
+
+==Output:==
+Upon entering each command, the simulator will display corresponding output to provide information about the performed operation.
+
