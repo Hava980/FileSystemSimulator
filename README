@@ -1,6 +1,5 @@
 File System Simulator
 Authored by Hava Haviv
-211737440
 
 ==Description==
 This project implements a basic file system simulator that allows you to interact with a simulated disk space. The simulator offers an interface to create, manage, read, and write files within this simulated disk environment.
